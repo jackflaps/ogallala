@@ -1,0 +1,15 @@
+<%= render "components/entity/entity" do %>
+  <h1><%= @entity.authorized_name %></h1>
+
+  <% unless @entity.names.select{|e| e['form'] != "authorized"}.empty? %>
+    <h2>Variant forms</h2>
+    <ul>
+      <% @entity.names.select{|e| e['form'] != "authorized"}.each do |name| %>
+        <li>
+          <span><%= name['name'] %></span>
+          <span class="badge badge-info"><%= name['form'] %></span>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>
