@@ -66,7 +66,7 @@ GEM
     erubi (1.8.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.25)
+    ffi (1.10.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hashie (3.6.0)
@@ -185,4 +185,4 @@ RUBY VERSION
    ruby 2.4.2p198
 
 BUNDLED WITH
-   2.0.1
+   1.17.3
