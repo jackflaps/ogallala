@@ -10,28 +10,26 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-fixed-top">
+    <nav class="navbar navbar-expand-sm navbar-fixed-top">
       <div class="container">
+        <div class="site-title">
+          <a href="/">Ogallala</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ogallalaNavbarMenu" aria-controls="ogallalaNavbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#cola-navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="site-title">
-            <a href="/">Ogallala</a>
-          </div>
-          <!-- Not actually using the menu right now so I'm commenting it out -->
-          <!--
-          <div class="navbar-collapse collapse" id="cola-navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="/about">About</a></li>
-              <li class="active"><a href="/contributors">Contributors</a></li>
-              <li class="active"><a href="/search">Search</a></li>
+          <div class="collapse navbar-collapse" id="ogallalaNavbarMenu">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a target="_blank" class="nav-link" href="https://github.com/jackflaps/ogallala">GitHub</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
             </ul>
           </div>
-          -->
         </div>
       </div>
     </nav>
