@@ -223,6 +223,16 @@ pre > code {
   background-color: #fffff6;
 }
 
+.logout-button-to {
+  padding: 0.5rem;
+}
+
+.nav-logout {
+  color: #994d00;
+  background-color: transparent;
+  border: solid 1px #e8e8e8;
+}
+
 /**
  * Site navigation for small screens
  */
