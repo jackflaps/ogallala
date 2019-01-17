@@ -30,3 +30,5 @@ Entity.create(person)
 family = {entity_type: "family", record_status: "draft", cataloging_level: "partial", cataloging_language: "eng", names: []}
 family[:names] << Name.create({name: "Lowenstein family", form: "authorized"})
 Entity.create(family)
+
+User.create({name: "Admin User", email: "admin@example.com", password: "nebraska", password_confirmation: "nebraska"})

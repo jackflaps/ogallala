@@ -2,16 +2,51 @@
 
 Ogallala is a Ruby on Rails application that manages linked local authority data. It provides the technical infrastructure for the [Rocky Mountain Names project](http://cola.jackflaps.net).
 
-Uses elasticsearch as its index
-
-Tested on Ruby >= 2.4.2 and Rails 5.2.2
+Ogallala is built on a Postgres database with an Elasticsearch index. It is tested on Ruby 2.4.2 and Rails 5.2.2.
 
 ## Installation instructions
 
-Set up the ELK (Elasticsearch -- Logstack -- Kibana) stack on whatever OS you're running (I followed the Mac OS X instructions [here](https://logz.io/blog/elk-mac/))
+Ogallala requires the following applications to be installed:
 
-Make sure you're running at least Ruby 2.4.2 and Rails 5.2.2
+* Rails (5.2.2)
+* Ruby (2.4.2)
+* Elasticsearch
+* Yarn (for installing JavaScript libraries)
 
-Clone this repo and deploy it locally with [Hivemind](https://github.com/DarthSim/hivemind)
+Once you are set up with the four applications above, follow these instructions:
+
+1. Clone this repository
+2. Run `bundle install` to get necessary Ruby gems (if not using postgres, comment out the 'pg' gem to avoid errors)
+3. Run `yarn install` to get necessary JavaScript libraries
+
+Then set up your database:
+
+```
+rake db:create
+rake db:migrate
+rake db:seed
+```
+
+From here you can run the application normally. `rails server` will do it, though we deploy locally with [Hivemind](https://github.com/DarthSim/hivemind).
+
+Log in with the default admin credentials: username _admin@example.com_, password _nebraska_. Note that, at this time, logging in doesn't actually let you do anything you can't do while not logged in.
+
+## Setting up Postgresql
+
+Ogallala should work with any database application you want to use it with. In development we use Postgresql so that we can [deploy it to Heroku](https://ogallala.herokuapp.com). Here's how to set that up, if you're doing so from scratch on OS X:
+
+```
+brew install postgresql
+brew services start postgresql
+psql postgres
+```
+
+And in postgres (setting your password to whatever you specify it to be in `config/database.yml`):
+
+```
+CREATE ROLE ogallala WITH LOGIN
+ALTER ROLE ogallala NOSUPERUSER CREATEDB
+ALTER USER ogallala PASSWORD ${}
+```
 
 This app doesn't really work yet so the documentation is extremely poor
