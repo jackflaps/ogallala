@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_01_11_205819) do
     t.string "record_status"
     t.string "cataloging_level"
     t.string "cataloging_language"
+    t.text "bioghist"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

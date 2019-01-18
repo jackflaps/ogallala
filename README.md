@@ -49,4 +49,6 @@ ALTER ROLE ogallala NOSUPERUSER CREATEDB
 ALTER USER ogallala PASSWORD ${}
 ```
 
-This app doesn't really work yet so the documentation is extremely poor
+## Finally
+
+Pull requests and comments welcome! For questions e-mail me: kevin [at] jackflaps.net

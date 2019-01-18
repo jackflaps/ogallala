@@ -36,15 +36,6 @@ body {
   font-kerning: normal;
 }
 
-h1 {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-h2 {
-  font-size: 1.2rem;
-}
-
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */
@@ -84,6 +75,18 @@ ol {
 li > ul,
 li > ol {
   margin-bottom: 0;
+}
+
+/**
+ * Headings
+ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
 }
 
 /**
@@ -287,23 +290,6 @@ pre > code {
     width: -webkit-calc(100% - (30px / 2));
     width: calc(100% - (30px / 2));
   }
-}
-
-/**
- * Agent pages
- */
-.cola-agent {
-  margin-bottom: 15px;
-}
-
-.name {
-  margin-bottom: 0;
-}
-
-.variant-forms,
-.record-footer {
-  color: #828282;
-  font-size: 14px;
 }
 
 /**
