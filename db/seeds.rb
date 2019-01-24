@@ -37,3 +37,5 @@ family[:names] << Name.create({name: "Lowenstein family", form: "authorized"})
 Entity.create(family)
 
 User.create({name: "Admin User", email: "admin@example.com", password: "nebraska", password_confirmation: "nebraska"})
+
+Relationship.create({relationship_type: "associative", relator: "is_associative_with", description: "David Hastings Moore was the first chancellor of the University of Denver", entity_id_0: 3, entity_id_1: 1})
