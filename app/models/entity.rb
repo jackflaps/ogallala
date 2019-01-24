@@ -12,6 +12,8 @@ class Entity < ApplicationRecord
   end
 
   has_many :names
+  has_many :relationships_from, foreign_key: "entity_id_0", class_name: "Relationship"
+  has_many :relationships_to, foreign_key: "entity_id_1", class_name: "Relationship"
 
   before_save :set_authorized_name
 

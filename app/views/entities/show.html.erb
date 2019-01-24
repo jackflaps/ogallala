@@ -23,7 +23,22 @@
   <p><%= @entity.bioghist %></p>
 
   <h3 id="relationships">Relationships</h3>
-  <p>We'll populate this later when the relationship model is established</p>
+  <% if @entity.relationships_from %>
+    <% @entity.relationships_from.each do |rlshp| %>
+      <div class="entity-relationship">
+        <h4><%= rlshp['relationship_type'] %></h4>
+        <p class="relationship-description"><%= rlshp['description'] %></p>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @entity.relationships_to %>
+    <% @entity.relationships_to.each do |rlshp| %>
+      <div class="entity-relationship">
+        <h4><%= rlshp['relationship_type'] %></h4>
+        <p class="relationship-description"><%= rlshp['description'] %></p>
+      </div>
+    <% end %>
+  <% end %>
 
   <!-- probably should separate this out into a partial, eventually -->
   <div id="accordion">
