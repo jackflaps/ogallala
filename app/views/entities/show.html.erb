@@ -1,4 +1,4 @@
-<% variant_forms = @entity.names.select{|e| e['form'] != "authorized"} %>
+<% variant_forms = @entity.names.select{|e| e.form != "authorized"} %>
 
 <%= render "components/entity/entity" do %>
   <h2><%= @entity.authorized_name %></h2>
@@ -6,8 +6,8 @@
   <% unless @entity.names.select{|e| e['form'] != "authorized"}.empty? %>
     <p class="variant-forms">
       <% variant_forms.each_with_index do |name, idx| %>
-        <span><%= name['name'] %></span>
-        <span class="badge badge-info"><%= name['form'] %></span>
+        <span><%= name.name %></span>
+        <span class="badge badge-info"><%= name.form %></span>
         <% if idx != variant_forms.size - 1 %>
           <br />
         <% end %>
@@ -26,16 +26,16 @@
   <% if @entity.relationships_from %>
     <% @entity.relationships_from.each do |rlshp| %>
       <div class="entity-relationship">
-        <h4><%= rlshp['relationship_type'] %></h4>
-        <p class="relationship-description"><%= rlshp['description'] %></p>
+        <h4><%= rlshp.relationship_type %></h4>
+        <p class="relationship-description"><%= rlshp.description %></p>
       </div>
     <% end %>
   <% end %>
   <% if @entity.relationships_to %>
     <% @entity.relationships_to.each do |rlshp| %>
       <div class="entity-relationship">
-        <h4><%= rlshp['relationship_type'] %></h4>
-        <p class="relationship-description"><%= rlshp['description'] %></p>
+        <h4><%= rlshp.relationship_type %></h4>
+        <p class="relationship-description"><%= rlshp.description %></p>
       </div>
     <% end %>
   <% end %>
@@ -57,4 +57,10 @@
       </div>
     </div>
   </div>
+
+  <% if logged_in? %>
+    <div class="entity-actions">
+      <%= link_to "Edit", {:controller => :entities, :action => :edit, :id => @entity.id}, :class => "btn btn-sm btn-primary" %>
+    </div>
+  <% end %>
 <% end %>

@@ -1,0 +1,10 @@
+<%= render "shared/flash_messages" %>
+
+<%= form_for @entity, :url => {:action => :update}, :html => {:class => "form-horizontal"} do |form| %>
+  <h2>Edit <%= @entity.authorized_name %></h2>
+  <%= render :partial => "form", :locals => {:form => form} %>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-primary">Save</button>
+    <%= link_to "Cancel", {:controller => :entities, :action => :show, :id => params[:id]}, :class => "btn btn-cancel btn-default" %>
+  </div>
+<% end %>
