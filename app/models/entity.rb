@@ -11,7 +11,9 @@ class Entity < ApplicationRecord
     end
   end
 
-  has_many :names
+  has_many :names, dependent: :destroy
+  accepts_nested_attributes_for :names
+
   has_many :relationships_from, foreign_key: "entity_id_0", class_name: "Relationship"
   has_many :relationships_to, foreign_key: "entity_id_1", class_name: "Relationship"
 
