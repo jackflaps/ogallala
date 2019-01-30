@@ -15,6 +15,16 @@
   display: inline;
 }
 
+.entity-navbar,
+.subrecord-form-heading {
+  padding: 0.25rem;
+}
+
+.entity-navbar {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background: rgba(245, 245, 245, 0.25);
+}
+
 .entity-actions,
 .form-actions,
 .btn-pull-right {
