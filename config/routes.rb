@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   match '/entities/new' => 'entities#create', via: :post
   match '/entities/:id' => 'entities#show', via: :get
   match '/entities/:id' => 'entities#update', via: :post
+  match '/entities/:id' => 'entities#delete', via: :delete
   match '/entities/:id/edit' => 'entities#edit', via: :get
-  match '/entities/:id/delete' => 'entities#delete', via: :post
+  resources :entities
 
   resources :users
 end

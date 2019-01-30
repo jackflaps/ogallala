@@ -1,11 +1,13 @@
 <%= render "shared/flash_messages" %>
 
+<h2 class="entity-navbar">
+  Edit <%= @entity.authorized_name %>
+  <%= button_to "Delete", {:controller => :entities, :action => :delete, :id => @entity.id}, :method => :delete, :class => "btn btn-sm btn-danger btn-pull-right" %>
+</h2>
 <%= form_for @entity, :url => {:action => :update}, :html => {:class => "form-horizontal"} do |form| %>
-  <h2>Edit <%= @entity.authorized_name %></h2>
   <%= render :partial => "form", :locals => {:form => form} %>
   <div class="form-actions">
     <%= form.submit 'Save', :class => "btn btn-sm btn-primary" %>
-    <%= link_to "Delete", {:controller => :entities, :action => :destroy, :id => @entity.id}, :class => "btn btn-sm btn-danger" %>
-    <%= link_to "Cancel", {:controller => :entities, :action => :show, :id => params[:id]}, :class => "btn btn-sm btn-cancel btn-default" %>
+    <%= link_to "Cancel", {:controller => :entities, :action => :show, :id => @entity.id}, :class => "btn btn-sm btn-cancel btn-default" %>
   </div>
 <% end %>
