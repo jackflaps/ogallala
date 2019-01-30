@@ -50,6 +50,9 @@
       </div>
       <div id="admin-details" class="collapse panel-collapse" aria-labelledby="admin-heading">
         <div class="card-body">
+          <% if @entity.legal_status %>
+            <p><strong>legal status</strong> <%= @entity.legal_status %></p>
+          <% end %>
           <p><strong>record status</strong> <%= @entity.record_status %></p>
           <p><strong>cataloging level</strong> <%= @entity.cataloging_level %></p>
           <p><strong>cataloging language</strong> <%= @entity.cataloging_language %></p>
