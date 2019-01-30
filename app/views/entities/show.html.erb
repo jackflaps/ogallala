@@ -59,8 +59,9 @@
   </div>
 
   <% if logged_in? %>
-    <div class="entity-actions">
+    <div class="form-actions">
       <%= link_to "Edit", {:controller => :entities, :action => :edit, :id => @entity.id}, :class => "btn btn-sm btn-primary" %>
+      <%= button_to "Delete", {:controller => :entities, :action => :delete, :id => @entity.id}, :method => :delete, :class => "btn btn-sm btn-danger" %>
     </div>
   <% end %>
 <% end %>

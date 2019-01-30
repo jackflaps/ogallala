@@ -46,8 +46,20 @@ class EntitiesController < ApplicationController
   def update
     @entity = Entity.find(params[:id])
     if @entity.update_attributes(entity_params)
-      flash.now[:success] = "Entity '#{@entity.authorized_name}' updated"
+      flash[:success] = "Entity '#{@entity.authorized_name}' updated"
       redirect_to :controller => :entities, :action => :edit, :id => @entity.id
+    else
+      flash[:error] = "Error: #{@entity.errors.messages}"
+      redirect_to :controller => :entities, :action => :edit, :id => @entity.id
+    end
+  end
+
+  def delete
+    @entity = Entity.find(params[:id])
+
+    if @entity.destroy
+      flash[:success] = "Entity '#{@entity.authorized_name}' deleted"
+      redirect_to :controller => :entities, :action => :index
     else
       flash[:error] = "Error: #{@entity.errors.messages}"
       redirect_to :controller => :entities, :action => :edit, :id => @entity.id
