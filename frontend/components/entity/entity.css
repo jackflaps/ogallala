@@ -7,6 +7,29 @@
   font-size: 0.75rem;
 }
 
+.entity-actions {
+  margin-top: 1rem;
+}
+
+.button_to {
+  display: inline;
+}
+
+.entity-actions,
+.form-actions,
+.btn-pull-right {
+  float: right;
+}
+
+.btn-pull-right {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.btn-cancel {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #fff;
+}
+
 /**
  * Admin panel
  */
@@ -43,4 +66,12 @@
   padding: 1rem;
   background-color: rgba(245, 245, 245, 0.75);
   border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/**
+ * Form layouts
+ */
+
+.subrecord-form-heading {
+  background-color: rgba(245, 245, 245, 0.75);
 }
