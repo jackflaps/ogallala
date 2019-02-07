@@ -21,6 +21,10 @@ figure {
   padding: 0;
 }
 
+.row {
+  margin: 0;
+}
+
 /**
  * Basic styling
  */
@@ -321,4 +325,120 @@ table.data-dict-table td.data-label {
   font-size: 18px;
   font-weight: bold;
   background-color: #e8e8e8;
+}
+
+/**
+ * Layout components
+ */
+
+.variant-forms {
+  color: #828282;
+  font-size: 0.75rem;
+}
+
+.button_to {
+  display: inline;
+}
+
+/**
+ * Form layout components
+ */
+
+.entity-form {
+  border: 1px solid rgba(0,0,0,0.125);
+}
+
+.form-group {
+  padding: 0.5rem 1rem;
+}
+
+.entity-actions {
+  margin-top: 1rem;
+}
+
+.subrecord-add-form {
+  border: 1px solid rgba(0,0,0,0.125);
+  background: #fff;
+}
+
+.subrecord-form-remove {
+  line-height: 100%;
+  border: 1px solid rgba(0,0,0,0.125);
+  background: #fff;
+  padding: 0.25rem;
+  margin-top: 0.25rem;
+  margin-right: 0.25rem;
+}
+
+.subrecord-form-heading {
+  padding: 0.25rem;
+  background-color: rgba(245, 245, 245, 0.75);
+}
+
+.subrecord-form-container {
+  margin-left: 0.5rem;
+}
+
+.subrecord-form-container > ul {
+  margin-left: 1rem;
+}
+
+.subrecord-form-list > li {
+  list-style-type: none;
+}
+
+.entity-navbar {
+  padding: 0.25rem;
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background: rgba(245, 245, 245, 1);
+}
+
+.entity-actions,
+.form-actions,
+.btn-pull-right {
+  float: right;
+}
+
+.btn-cancel {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #fff;
+}
+
+/**
+ * Admin panel
+ */
+
+.card-header {
+  padding: 0;
+  color: #333;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-body {
+  padding: 0.75rem;
+  background-color: #fff;
+}
+
+.card-body > p {
+  font-size: 0.75rem;
+  margin-bottom: 0;
+}
+
+.btn-link {
+  color: inherit;
+  font-weight: bold;
+}
+
+/**
+ * Relationships
+ */
+
+.entity-relationship {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: rgba(245, 245, 245, 0.75);
+  border: 1px solid rgba(0, 0, 0, 0.125);
 }

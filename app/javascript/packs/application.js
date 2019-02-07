@@ -7,5 +7,12 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import "init";
-import "components/entity/entity";
+// JS libraries
+import "jquery"
+import "jquery-ujs"
+import "bootstrap/dist/js/bootstrap"
+
+// CSS
+import "bootstrap/dist/css/bootstrap.css"
+import "@fortawesome/fontawesome-free/css/all.css"
+import "./application.css"
