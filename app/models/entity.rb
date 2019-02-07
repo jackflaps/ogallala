@@ -1,18 +1,18 @@
 class Entity < ApplicationRecord
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  #include Elasticsearch::Model
+  #include Elasticsearch::Model::Callbacks
 
-  settings do
-    mappings dynamic: false do
-      indexes :authorized_name, type: :text, analyzer: :english
-      indexes :entity_type, type: :text, analyzer: :english
-      indexes :record_status, type: :text, analyzer: :english
-      indexes :cataloging_level, type: :text, analyzer: :english
-    end
-  end
+  #settings do
+  #  mappings dynamic: false do
+  #    indexes :authorized_name, type: :text, analyzer: :english
+  #    indexes :entity_type, type: :text, analyzer: :english
+  #    indexes :record_status, type: :text, analyzer: :english
+  #    indexes :cataloging_level, type: :text, analyzer: :english
+  #  end
+  #end
 
-  has_many :names, dependent: :destroy
-  accepts_nested_attributes_for :names
+  has_many :names, :dependent => :destroy
+  accepts_nested_attributes_for :names, allow_destroy: true
 
   has_many :relationships_from, foreign_key: "entity_id_0", class_name: "Relationship"
   has_many :relationships_to, foreign_key: "entity_id_1", class_name: "Relationship"
@@ -24,7 +24,7 @@ class Entity < ApplicationRecord
   validates :record_status, inclusion: { in: %w(draft finalized revised deleted), message: "'%{value}' is not a valid record status" }, allow_nil: true
   validates :cataloging_level, inclusion: { in: %w(minimal partial full), message: "'%{value}' is not a valid cataloging level" }, allow_nil: true
 
-  validate :name_is_authorized
+  #validate :name_is_authorized
 
   def name_is_authorized
     authorized_names = names.select{|n| n['form'] == "authorized"}

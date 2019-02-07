@@ -1,0 +1,23 @@
+<%
+  singular = name.singularize if singular.blank?
+  heading_size = "h3" if heading_size.blank?
+  template = singular if template.blank?
+  template_erb = "#{name.to_s}/template" if template_erb.blank?
+  js_template_name = "template_#{template}" if js_template_name.blank?
+%>
+
+<%= render :partial => template_erb, :locals => {:form => form} %>
+
+<section id="entity_<%= name %>" class="subrecord-form" data-subrecord-form="true" data-object-name="name">
+  <h3 class="subrecord-form-heading">
+    <span class="subrecord-form-heading-label"><%= name.capitalize %></span>
+    <%= link_to "Add Name", '#', :class => "btn btn-sm btn-default btn-pull-right subrecord-add-form" %>
+  </h3>
+  <div class="subrecord-form-container">
+    <ul class="subrecord-form-list">
+      <%= form.fields_for name do |name_form| %>
+        <%= render(name.to_s + "/fields", f: name_form) %>
+      <% end %>
+    </ul>
+  </div>
+</section>

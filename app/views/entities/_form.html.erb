@@ -1,5 +1,8 @@
-<fieldset>
-  <section id="entity_type">
+<div id="form_entity">
+  <section id="basic_information">
+    <h3 class="subrecord-form-heading">
+      <span class="subrecord-form-heading-label">Basic Information</span>
+    </h3>
     <div class="control-group form-group row">
       <%= form.label :entity_type, :class => "control-label col-sm-3" %>
       <div class="col-sm-9">
@@ -13,29 +16,8 @@
       </div>
     </div>
   </section>
-  <%#= render :partial => "subrecord_form", :locals => {:form => form, :name => "names"} %>
-  <!-- subrecord_form 'name' -->
-  <section id="entity_name" class="subrecord-form" data-subrecord-form="true" data-object-name="name">
-    <h3 class="subrecord-form-heading">
-      <span class="subrecord-form-heading-label">Names</span>
-    </h3>
-    <%= form.fields_for :names do |name_form| %>
-      <div class="control-group form-group row">
-        <%= name_form.label :name, :class => "control-label col-sm-3" %>
-        <div class="col-sm-9">
-          <%= name_form.text_field :name, :class => "form-control" %>
-        </div>
-      </div>
-      <div class="control-group form-group row">
-        <%= name_form.label :form, :class => "control-label col-sm-3" %>
-        <div class="col-sm-9">
-          <%= name_form.select :form, possible_options_for("name_form"), {}, {:class => "form-control"} %>
-        </div>
-      </div>
-    <% end %>
-  </section>
-  <!-- end subrecord_form -->
-  <section id="administrative_details">
+  <%= render :partial => "subrecord_form", :locals => {:form => form, :name => "names"} %>
+  <section id="entity_administrative_details">
     <h3 class="subrecord-form-heading">
       <span class="subrecord-form-heading-label">Administrative Details</span>
     </h3>
@@ -58,4 +40,4 @@
       </div>
     </div>
   </section>
-</fieldset>
+</div>

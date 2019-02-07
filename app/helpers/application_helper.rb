@@ -1,8 +1,9 @@
 module ApplicationHelper
-  def component(component_name, locals = {}, &block)
-    name = component_name.split("-").first
-    render("components/#{name}/#{component_name}", locals, &block)
-  end
+  def include_controller_js
+    scripts = ""
 
-  alias c component
+    scripts += javascript_include_tag "#{controller.controller_name}" if File.exist?("#{Rails.root}/app/assets/javascripts/#{controller_name}.js")
+
+    scripts.html_safe
+  end
 end

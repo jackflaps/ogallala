@@ -5,14 +5,9 @@ Rails.application.routes.draw do
   match '/login', to: 'sessions#create', via: :post
   match '/logout', to: 'sessions#destroy', via: :delete
 
-  match '/entities' => 'entities#index', via: :get
-  match '/entities/new' => 'entities#new', via: :get
-  match '/entities/new' => 'entities#create', via: :post
-  match '/entities/:id' => 'entities#show', via: :get
-  match '/entities/:id' => 'entities#update', via: :post
-  match '/entities/:id' => 'entities#delete', via: :delete
-  match '/entities/:id/edit' => 'entities#edit', via: :get
   resources :entities
-
+  match '/entities/:id', to: 'entities#update', via: :post
+  match '/entities/:id/delete', to: 'entities#delete', via: :delete
+  
   resources :users
 end

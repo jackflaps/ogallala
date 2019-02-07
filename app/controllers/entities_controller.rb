@@ -3,35 +3,28 @@ class EntitiesController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:index, :show]
 
+  # GET /entities
   def index
     @entities = Entity.all
   end
 
+  # GET /entities/new
   def new
     @entity = Entity.new
     @entity.names.build
   end
 
+  # GET /entities/:id/edit
   def edit
     @entity = Entity.find(params[:id])
   end
 
+  # GET /entities/:id
   def show
     @entity = Entity.find(params[:id])
-
-    if @entity.nil?
-      @entities = Entity.all
-      flash.now[:error] = "Entity not found: /entities/#{params[:id]}"
-      #redirect_to action: "index"
-      render :action => "index"
-    else
-      respond_to do |format|
-        format.html # render HTML view by default
-        format.json { render json: @entity }
-      end
-    end
   end
 
+  # POST /entities
   def create
     @entity = Entity.new(entity_params)
     if @entity.save
@@ -43,17 +36,19 @@ class EntitiesController < ApplicationController
     end
   end
 
+  # POST /entities/:id
   def update
     @entity = Entity.find(params[:id])
     if @entity.update_attributes(entity_params)
       flash[:success] = "Entity '#{@entity.authorized_name}' updated"
-      redirect_to :controller => :entities, :action => :edit, :id => @entity.id
+      redirect_to @entity
     else
       flash[:error] = "Error: #{@entity.errors.messages}"
-      redirect_to :controller => :entities, :action => :edit, :id => @entity.id
+      render :action => :edit
     end
   end
 
+  # DELETE /entities/:id
   def delete
     @entity = Entity.find(params[:id])
 
@@ -62,7 +57,7 @@ class EntitiesController < ApplicationController
       redirect_to :controller => :entities, :action => :index
     else
       flash[:error] = "Error: #{@entity.errors.messages}"
-      redirect_to :controller => :entities, :action => :edit, :id => @entity.id
+      render :action => :edit
     end
   end
 
@@ -75,7 +70,7 @@ class EntitiesController < ApplicationController
       :legal_status,
       :cataloging_level,
       :record_status,
-      names_attributes: [ :id, :name, :form ]
+      names_attributes: [ :id, :name, :form, :_destroy ]
     )
   end
 
