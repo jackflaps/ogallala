@@ -1,20 +1,19 @@
-<li class="subrecord-form-wrapper">
-  <div class="subrecord-form-fields">
-    <h4 class="subrecord-form-heading">
-      <span class="subrecord-form-heading-label">Name Form</span>
-    </h4>
-    <%= f.hidden_field :_destroy %>
-    <div class="control-group form-group row">
-      <%= f.label :name, :class => "control-label col-sm-3" %>
-      <div class="col-sm-9">
-        <%= f.text_field :name, :class => "form-control" %>
-      </div>
-    </div>
-    <div class="control-group form-group row">
-      <%= f.label :form, :class => "control-label col-sm-3" %>
-      <div class="col-sm-9">
-        <%= f.select :form, possible_options_for("name_form"), {}, {:class => "form-control"} %>
-      </div>
+<div class="subrecord-form-fields">
+  <h4 class="subrecord-form-heading">
+    <span class="subrecord-form-heading-label">Name Form</span>
+    <%#= f.remove_nested_fields_link "<span class=\"fas fa-times\"></span>", :class => "btn btn-sm btn-default btn-pull-right subrecord-form-remove" %>
+  </h4>
+  <%= f.hidden_field :_destroy %>
+  <div class="control-group form-group row">
+    <%= f.label :name, :class => "control-label col-sm-3" %>
+    <div class="col-sm-9">
+      <%= f.text_field :name, :class => "form-control" %>
     </div>
   </div>
-</li>
+  <div class="control-group form-group row">
+    <%= f.label :form, :class => "control-label col-sm-3" %>
+    <div class="col-sm-9">
+      <%= f.select :form, possible_options_for("name_form"), {}, {:class => "form-control"} %>
+    </div>
+  </div>
+</div>

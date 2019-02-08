@@ -4,12 +4,10 @@
   Edit <%= @entity.authorized_name %>
   <%= button_to "Delete", {:controller => :entities, :action => :delete, :id => @entity.id}, :method => :delete, :class => "btn btn-sm btn-danger btn-pull-right" %>
 </h2>
-<%= form_for @entity, :as => "entity", :url => {:action => :update}, :html => {:class => "form-horizontal entity-form", :id => "entity_form"} do |form| %>
-  <%#= form_context :entity, @entity do |form| %>
-    <%= render :partial => "form", :locals => {:form => form} %>
-    <div class="form-actions">
-      <button type="submit" class="btn btn-sm btn-primary">Save</button>
-      <%= link_to "Cancel", {:controller => :entities, :action => :show, :id => @entity.id}, :class => "btn btn-sm btn-cancel btn-default" %>
-    </div>
-  <%# end %>
+<%= form_for @entity, :url => {:action => :update}, :html => {:class => "form-horizontal entity-form", :id => "entity_form"} do |form| %>
+  <%= render :partial => "form", :locals => {:form => form} %>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-sm btn-primary">Save</button>
+    <%= link_to "Cancel", {:controller => :entities, :action => :show, :id => @entity.id}, :class => "btn btn-sm btn-cancel btn-default" %>
+  </div>
 <% end %>

@@ -2,11 +2,9 @@
 
 <h2 class="entity-navbar">New Entity Form</h2>
 <%= form_for @entity, :html => {:class => "form-horizontal entity-form", :id => "entity_form"} do |form| %>
-  <%#= form_context :entity, @entity do |form| %>
-    <%= render :partial => "form", :locals => {:form => form} %>
-    <div class="form-actions">
-      <button type="submit" class="btn btn-sm btn-primary">Save</button>
-      <%= link_to "Cancel", {:controller => :entities, :action => :index}, :class => "btn btn-sm btn-cancel btn-default" %>
-    </div>
-  <%# end %>
+  <%= render :partial => "form", :locals => {:form => form} %>
+  <div class="form-actions">
+    <button type="submit" class="btn btn-sm btn-primary">Save</button>
+    <%= link_to "Cancel", {:controller => :entities, :action => :index}, :class => "btn btn-sm btn-cancel btn-default" %>
+  </div>
 <% end %>
