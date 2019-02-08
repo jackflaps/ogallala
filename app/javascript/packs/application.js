@@ -15,4 +15,4 @@ import "bootstrap/dist/js/bootstrap"
 // CSS
 import "bootstrap/dist/css/bootstrap.css"
 import "@fortawesome/fontawesome-free/css/all.css"
-import "./application.css"
+import "../src/application.css"
