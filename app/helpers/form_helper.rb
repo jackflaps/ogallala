@@ -1,4 +1,10 @@
 module FormHelper
+  def ogallala_form_for(name, *args, &block)
+    options = args.extract_options!
+    args << options.merge(builder: OgallalaFormBuilder)
+    form_for(name, *args, &block)
+  end
+
   def possible_options_for(property, add_empty_options = false)
     options = []
     options.push(["", ""]) if add_empty_options
@@ -19,13 +25,5 @@ module FormHelper
     end
 
     options
-  end
-
-  def define_template(name, definition = nil, &block)
-    @templates ||= {}
-    @templates[name] = {
-      :block => block,
-      :definition => definition,
-    }
   end
 end
