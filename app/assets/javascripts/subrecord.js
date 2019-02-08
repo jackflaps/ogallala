@@ -66,9 +66,9 @@ $(function() {
         };
 
         var addAndInitForm = function(formHtml, $target_subrecord_list) {
-          console.log($this.data("form_index"));
-          // replace child template tags with script tags to avoid submitting templates
           var $parsed_template = $(formHtml);
+          
+          // replace child template tags with script tags to avoid submitting templates
           var $child_templates = $parsed_template.closestChild(".form_template");
           $.each($child_templates, function() {
             $child = $(this);
