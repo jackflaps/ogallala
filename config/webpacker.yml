@@ -26,7 +26,6 @@ default: &default
     - .gif
     - .jpeg
     - .jpg
-    - .hbs
 
 development:
   <<: *default
