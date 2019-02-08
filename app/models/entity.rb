@@ -24,7 +24,7 @@ class Entity < ApplicationRecord
   validates :record_status, inclusion: { in: %w(draft finalized revised deleted), message: "'%{value}' is not a valid record status" }, allow_nil: true
   validates :cataloging_level, inclusion: { in: %w(minimal partial full), message: "'%{value}' is not a valid cataloging level" }, allow_nil: true
 
-  #validate :name_is_authorized
+  validate :name_is_authorized
 
   def name_is_authorized
     authorized_names = names.select{|n| n['form'] == "authorized"}
