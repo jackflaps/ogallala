@@ -72,7 +72,7 @@ $(function() {
           var $child_templates = $parsed_template.closestChild(".form_template");
           $.each($child_templates, function() {
             $child = $(this);
-            $child.replaceWith($(`<script id='${$child.attr('id')}' type='text/html' />`).html($child.html()));
+            $child.replaceWith($("<script id=\"" + $child.attr('id')} + "\" type='text/html' />").html($child.html()));
           });
 
           $target_subrecord_list.append($parsed_template);
