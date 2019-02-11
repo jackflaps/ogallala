@@ -67,12 +67,12 @@ $(function() {
 
         var addAndInitForm = function(formHtml, $target_subrecord_list) {
           var $parsed_template = $(formHtml);
-          
+
           // replace child template tags with script tags to avoid submitting templates
           var $child_templates = $parsed_template.closestChild(".form_template");
           $.each($child_templates, function() {
             $child = $(this);
-            $child.replaceWith($(`<script id='${$child.attr('id')}' type='text/html' />`).html($child.html()));
+            $child.replaceWith($("<script id=\"" + $child.attr('id') + "\" type='text/html' />").html($child.html()));
           });
 
           $target_subrecord_list.append($parsed_template);
@@ -91,13 +91,13 @@ $(function() {
           var $link = $(this);
           var $object_class = $link.data('object-class');
           var $association_path = $link.data('association-path');
-          var $template = $(`#${$association_path}_template`);
+          var $template = $("#" + $association_path + "_template");
           var $target_subrecord_list = $(".subrecord-form-list:first", $(this).parents(".subrecord-form:first"));
 
           var template_html = $template.html();
 
           // insert association indices
-          var index_placeholder = `__${$association_path}_index__`;
+          var index_placeholder = "__" + $association_path + "_index__";
           template_html = template_html.replace(new RegExp(index_placeholder,"g"), $this.data("form_index"));
           template_html = template_html.replace(new RegExp("__nested_field_for_replace_with_index__","g"), $this.data("form_index"));
 
