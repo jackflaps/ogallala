@@ -1,6 +1,6 @@
 class Relationship < ApplicationRecord
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  #include Elasticsearch::Model
+  #include Elasticsearch::Model::Callbacks
 
   belongs_to :related_from, foreign_key: "entity_id_0", class_name: "Entity"
   belongs_to :related_to, foreign_key: "entity_id_1", class_name: "Entity"
