@@ -4,7 +4,7 @@
       <h2>{{ entity.authorized_name }}</h2>
 
       <h3>Names</h3>
-      <div v-for="name in entity.names">
+      <div v-for="name in entity.names" :key="name.id">
         <p class="variant-forms">
           <span>{{ name.name }}</span>
           <span class="badge badge-info">{{ name.form }}</span>
