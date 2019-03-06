@@ -9,8 +9,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   data () {
     return {
@@ -18,7 +16,7 @@ export default {
     }
   },
   created () {
-    axios.get('http://localhost:8080/entities')
+    axios.get('/entities')
       .then(response => {
         this.entities = response.data
       })

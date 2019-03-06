@@ -4,20 +4,27 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App'
 import router from './router'
-import axios from './backend/axios'
+import Axios from 'axios'
 
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.use(BootstrapVue)
-Vue.use(axios)
 Vue.config.productionTip = false
+
+const axios = Axios.create({
+  baseURL: 'http://localhost:8080',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+
+window.axios = axios
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  axios,
   components: { App },
   template: '<App/>'
 })

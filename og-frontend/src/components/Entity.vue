@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
   data () {
     return {
@@ -22,7 +20,7 @@ export default {
     }
   },
   created () {
-    axios.get('http://localhost:8080/entities/' + this.$route.params.id)
+    axios.get('/entities/' + this.$route.params.id)
       .then(response => {
         this.entity = response.data
       })
