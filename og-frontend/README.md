@@ -2,6 +2,8 @@
 
 > A Vue.js project
 
+thanks to [this site](https://medium.com/netscape/deploying-a-vue-js-2-x-app-to-heroku-in-5-steps-tutorial-a69845ace489) for finally showing me how to deploy this dang old thing to heroku
+
 ## Build Setup
 
 ``` bash
