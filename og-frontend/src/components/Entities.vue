@@ -16,7 +16,7 @@ export default {
     }
   },
   created () {
-    axios.get('/entities')
+    this.$http.get('/entities')
       .then(response => {
         this.entities = response.data
       })

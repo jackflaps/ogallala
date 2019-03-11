@@ -25,7 +25,7 @@
 
       <div role="admin-details">
         <b-card no-body class="mb-0">
-          <b-card-header header-tag="admin-heading" class="p-1" role="tab">
+          <b-card-header id="admin-heading" class="p-1" role="tab">
             <b-button href="#" v-b-toggle.admin-details variant="light">Administrative Details</b-button>
           </b-card-header>
           <b-collapse id="admin-details" accordion="my-accordion" role="tabpanel">
@@ -58,7 +58,7 @@ export default {
     }
   },
   created () {
-    axios.get('/entities/' + this.$route.params.id)
+    this.$http.get('/entities/' + this.$route.params.id)
       .then(response => {
         this.entity = response.data
       })
