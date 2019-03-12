@@ -59,11 +59,10 @@ RSpec.describe 'Entities API', type: :request do
   describe 'POST /entities' do
     context 'when the request is valid' do
       let(:valid_attributes) { {
-        "entity": {
-          "entity_type": "person",
-          "bioghist": "Henry Lowenstein is known as the Father of Denver Theatre.",
-          "names_attributes": [{"name": "Lowenstein, Henry, 1925-2014", "form": "authorized"}]
-        } }.to_json }
+        "entity_type": "person",
+        "bioghist": "Henry Lowenstein is known as the Father of Denver Theatre.",
+        "names_attributes": [{"name": "Lowenstein, Henry, 1925-2014", "form": "authorized"}]
+      }.to_json }
 
       before { post '/entities', params: valid_attributes, headers: headers }
 
@@ -78,10 +77,9 @@ RSpec.describe 'Entities API', type: :request do
 
     context 'when the request is invalid' do
       let(:invalid_attributes) { {
-        "entity": {
-          "entity_type": "person",
-          "names_attributes": []
-        } }.to_json }
+        "entity_type": "person",
+        "names_attributes": []
+      }.to_json }
 
       before { post '/entities', params: invalid_attributes, headers: headers }
 
@@ -98,7 +96,7 @@ RSpec.describe 'Entities API', type: :request do
   # Test suite for POST /entities/:id
   describe 'POST /entities/:id' do
     let(:valid_attributes) { {
-      "entity": { "bioghist": "This entity is full of contrasts" }
+      "bioghist": "This entity is full of contrasts"
     }.to_json }
 
     before { post "/entities/#{entity_id}", params: valid_attributes, headers: headers }

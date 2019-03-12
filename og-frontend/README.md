@@ -4,6 +4,8 @@
 
 thanks to [this site](https://medium.com/netscape/deploying-a-vue-js-2-x-app-to-heroku-in-5-steps-tutorial-a69845ace489) for finally showing me how to deploy this dang old thing to heroku
 
+thanks to [this site](https://paweljw.github.io/2017/10/vue.js-front-end-app-part-4-keeping-state-with-vuex/) for showing me how to get frontend authentication to work
+
 ## Build Setup
 
 ``` bash

@@ -1,19 +1,6 @@
 <template>
   <div id="app">
-    <b-navbar toggleable="sm" variant="success" fixed="top">
-      <b-navbar-brand href="/">Ogallala</b-navbar-brand>
-
-      <b-navbar-toggle target="nav_collapse" />
-
-      <b-collapse is-nav id="nav_collapse">
-        <b-navbar-nav class="ml-auto">
-          <b-nav-item href="/entity/new">New Entity</b-nav-item>
-          <b-nav-item href="/entities">View Entities</b-nav-item>
-          <b-nav-item href="https://github.com/jackflaps/ogallala">GitHub</b-nav-item>
-          <b-nav-item>Login</b-nav-item>
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
+    <Navbar/>
     <div class="container">
       <router-view/>
     </div>
@@ -21,8 +8,15 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import Navbar from '@/components/navbar'
+
 export default {
-  name: 'App'
+  name: 'App',
+  computed: {
+    ...mapGetters({ currentUser: 'currentUser' })
+  },
+  components: { Navbar }
 }
 </script>
 

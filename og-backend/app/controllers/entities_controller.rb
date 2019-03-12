@@ -35,7 +35,7 @@ class EntitiesController < ApplicationController
   private
 
   def entity_params
-    params.require(:entity).permit(
+    params.permit(
       :id, :entity_type, :bioghist, :legal_status, :cataloging_level, :record_status, :cataloging_language,
       names_attributes: [ :id, :name, :form, :_destroy ]
     )
