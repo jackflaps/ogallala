@@ -14,7 +14,7 @@ import store from './store'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-axios.defaults.baseURL = 'http://localhost:8080'
+axios.defaults.baseURL = 'http://og-backend.herokuapp.com'
 axios.defaults.headers.post = {
   'Content-Type': 'application/json',
   'Authorization': localStorage.token
