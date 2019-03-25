@@ -23,8 +23,8 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import loginButton from '@/components/buttons/Login'
-import logoutButton from '@/components/buttons/Logout'
+import loginButton from '@/components/buttons/login'
+import logoutButton from '@/components/buttons/logout'
 
 export default {
   name: 'Navbar',
