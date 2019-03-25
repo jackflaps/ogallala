@@ -3,7 +3,7 @@
     <b-row>
       <b-col md="12">
         <div class="record-pane">
-          <b-alert dismissible variant="danger" v-if="alerts.error" show>{{ alerts.error }}</b-alert>
+          <b-alert dismissible variant="danger" v-if="error" show>{{ error }}</b-alert>
           <b-form @submit.prevent="login" v-if="show">
             <b-form-group id="email" label="E-mail address:" label-for="email">
               <b-form-input id="email" type="text" v-model="form.email"/>
@@ -30,7 +30,8 @@ export default {
         email: '',
         password: ''
       },
-      show: true
+      show: true,
+      error: null
     }
   },
   computed: {
