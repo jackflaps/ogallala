@@ -1,20 +1,22 @@
 <template>
   <div id="app">
     <Navbar/>
-    <div class="container">
-      <router-view/>
-    </div>
+    <router-view :alerts="alerts"/>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import Navbar from '@/components/Navbar'
 
 export default {
   name: 'App',
-  computed: {
-    ...mapGetters({ currentUser: 'currentUser' })
+  data () {
+    return {
+      alerts: {
+        error: null,
+        success: null
+      }
+    }
   },
   components: { Navbar }
 }
@@ -29,7 +31,7 @@ export default {
   margin-top: 60px;
 }
 
-.container {
-  padding-top: 15px;
+.content-pane {
+  padding-top: 10px;
 }
 </style>

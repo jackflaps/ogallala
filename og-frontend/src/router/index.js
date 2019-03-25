@@ -1,11 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import Welcome from '@/components/Welcome'
 import Entities from '@/components/Entities'
-import Entity from '@/components/Entity'
-import NewEntity from '@/components/NewEntity'
+import Show from '@/components/entities/Show'
+import Edit from '@/components/entities/Edit'
+import New from '@/components/entities/New'
 import Login from '@/components/Login'
 import Logout from '@/components/Logout'
+import NotFound from '@/components/404'
 
 Vue.use(Router)
 
@@ -17,7 +20,9 @@ export default new Router({
     { path: '/login', name: 'Login', component: Login },
     { path: '/logout', name: 'Logout', component: Logout },
     { path: '/entities', name: 'Entities', component: Entities },
-    { path: '/entities/:id', name: 'Entity', component: Entity },
-    { path: '/entity/new', name: 'New Entity Form', component: NewEntity }
+    { path: '/entities/:id', name: 'ShowEntity', component: Show },
+    { path: '/entities/:id/edit', name: 'EditEntity', component: Edit },
+    { path: '/entity/new', name: 'NewEntity', component: New },
+    { path: '*', component: NotFound }
   ]
 })
