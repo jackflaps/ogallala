@@ -1,4 +1,4 @@
-FROM node:9
+FROM node:10
 
 ARG UID
 RUN adduser frontend --uid $UID --disabled-password --gecos ""
