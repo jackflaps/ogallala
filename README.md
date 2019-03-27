@@ -1,53 +1,34 @@
 # Ogallala
 
-Ogallala is a Ruby on Rails application that manages linked local authority data. It provides the technical infrastructure for the [Rocky Mountain Names project](http://cola.jackflaps.net).
+Ogallala is a prototype application for managing shared local authority data for cultural heritage institutions (libraries, archives, and museums). It provides the technical infrastructure for the [Rocky Mountain Names project](http://cola.jackflaps.net).
 
-Ogallala is built on a Postgres database with an Elasticsearch index. It is tested on Ruby 2.4.2 and Rails 5.2.2.
+Ogallala consists of a Rails API built on a PostgreSQL database for serving data, and a [VueJS](https://vuejs.org) frontend. Here it is packaged as two Docker containers for local development, but one could choose to run only the Rails API and build their own frontend as well. The API runs on Ruby 2.4.2 and Rails 5.2.2; the frontend runs on Vue 2.6.1 with Webpack 4.
 
 ## Installation instructions
 
-Ogallala requires the following applications to be installed:
+Docker is required to run this application as is. You should have Ruby (2.4.2) and Rails (5.2.2) if you plan to run only the backend.
 
-* Rails (5.2.2)
-* Ruby (2.4.2)
-* Elasticsearch
-* Yarn (for installing JavaScript libraries)
-
-Once you are set up with the four applications above, follow these instructions:
-
-1. Clone this repository
-2. Run `bundle install` to get necessary Ruby gems (if not using postgres, comment out the 'pg' gem to avoid errors)
-3. Run `yarn install` to get necessary JavaScript libraries
-
-Then set up your database:
+To start, clone this repository, make sure Docker is running on your system, then build the Docker components:
 
 ```
-rake db:create
-rake db:migrate
-rake db:seed
+docker-compose build
+docker-compose run -u root backend bundle
+docker-compose run frontend yarn
 ```
 
-From here you can run the application normally. `rails server` will do it, though we deploy locally with [Hivemind](https://github.com/DarthSim/hivemind).
+The `docker-compose build` command will pull the Docker postgres image; the `run backend` and `run frontend` commands install the required Ruby (backend) and Javascript (frontend) libraries for each application.
 
-Log in with the default admin credentials: username _admin@example.com_, password _nebraska_. Note that, at this time, logging in doesn't actually let you do anything you can't do while not logged in.
-
-## Setting up Postgresql
-
-Ogallala should work with any database application you want to use it with. In development we use Postgresql so that we can [deploy it to Heroku](https://ogallala.herokuapp.com). Here's how to set that up, if you're doing so from scratch on OS X:
+Finally, create your postgres database and populate it with the provided seed data:
 
 ```
-brew install postgresql
-brew services start postgresql
-psql postgres
+docker-compose run backend rails db:create
+docker-compose run backend rails db:migrate
+docker-compose run backend rails db:seed
 ```
 
-And in postgres (setting your password to whatever you specify it to be in `config/database.yml`):
+From here you can run `docker-compose up` to start the application.
 
-```
-CREATE ROLE ogallala WITH LOGIN
-ALTER ROLE ogallala NOSUPERUSER CREATEDB
-ALTER USER ogallala PASSWORD ${}
-```
+Log in with the default admin credentials: username _admin@example.com_, password _nebraska_. At this time the application doesn't support creating new users, deleting existing users, or changing passwords. It allows for creating and editing entity records, as well as deleting entity records (from the backend only).
 
 ## Finally
 
