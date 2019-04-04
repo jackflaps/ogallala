@@ -1,11 +1,9 @@
 <template>
-  <b-container fluid class="content-pane">
-    <b-row>
-      <b-col md="12">
-        <router-view :alerts="alerts"></router-view>
-      </b-col>
-    </b-row>
-  </b-container>
+  <b-row>
+    <b-col md="12">
+      <router-view :alerts="alerts"></router-view>
+    </b-col>
+  </b-row>
 </template>
 
 <script>

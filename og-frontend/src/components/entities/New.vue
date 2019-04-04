@@ -1,8 +1,6 @@
 <template>
   <div class="record-pane">
     <div v-if="currentUser">
-      <b-alert dismissible show variant="danger" v-if="alerts.error">{{ alerts.error }}</b-alert>
-      <b-alert dismissible show variant="success" v-if="alerts.success">{{ alerts.success }}</b-alert>
       <b-form class="entity-record-form" @submit.prevent="post" v-if="show">
         <h2>New Entity</h2>
         <section id="entity_basic_information">

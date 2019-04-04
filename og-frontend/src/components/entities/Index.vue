@@ -17,6 +17,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  props: ['alerts'],
   data () {
     return {
       entities: []
@@ -30,9 +31,7 @@ export default {
       .then(response => {
         this.entities = response.data
       })
-      .catch(e => {
-        this.error.push(e)
-      })
+      .catch(e => { this.alerts.error = e })
   }
 }
 </script>

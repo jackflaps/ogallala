@@ -1,7 +1,5 @@
 <template>
   <div class="record-pane">
-    <b-alert dismissible show variant="danger" v-if="alerts.error">{{ alerts.error }}</b-alert>
-    <b-alert dismissible show variant="success" v-if="alerts.success">{{ alerts.success }}</b-alert>
     <h2>{{ entity.authorized_name }}</h2>
 
     <section id="entity_names">

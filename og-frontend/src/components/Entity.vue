@@ -1,18 +1,13 @@
 <template>
-  <b-container fluid class="content-pane">
-    <b-row v-if="entity">
-      <b-col md="12">
-        <router-view :alerts="alerts" :entity="entity"></router-view>
-      </b-col>
-    </b-row>
-
-    <b-row v-else>
-      <b-col md="12">
-        <b-alert show variant="danger">{{ alerts.error }}: /entities/{{ $route.params.id }}</b-alert>
-        <p>Return to the <a href="/">home page</a></p>
-      </b-col>
-    </b-row>
-  </b-container>
+  <b-row>
+    <b-col md="12" v-if="entity">
+      <router-view :alerts="alerts" :entity="entity"></router-view>
+    </b-col>
+    <b-col md="12" v-else>
+      <b-alert show variant="danger">{{ alerts.error }}: /entities/{{ $route.params.id }}</b-alert>
+      <p>Return to the <a href="/">home page</a></p>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
@@ -24,7 +19,7 @@ export default {
       entity: null
     }
   },
-  created () {
+  beforeCreate () {
     this.$http.get('/entities/' + this.$route.params.id)
       .then(response => { this.entity = response.data })
       .catch(e => { this.alerts.error = e })

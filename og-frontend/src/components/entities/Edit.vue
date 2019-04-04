@@ -1,8 +1,6 @@
 <template>
   <div class="record-pane">
-    <div v-if="currentUser">
-      <b-alert dismissible show variant="danger" v-if="alerts.error">{{ alerts.error }}</b-alert>
-      <b-alert dismissible show variant="success" v-if="alerts.success">{{ alerts.success }}</b-alert>
+    <div class="form-group" v-if="currentUser">
       <b-form class="entity-record-form" @submit.prevent="post" v-if="show">
         <h2>Edit {{ entity.authorized_name }}</h2>
         <section id="entity_basic_information">
@@ -47,7 +45,7 @@
         </div>
       </b-form>
     </div>
-    <div v-else>
+    <div class="unauthorized" v-else>
       <b-alert show variant="danger"><strong>Error:</strong> You are not authorized to edit this resource.</b-alert>
       <p>Return to the <a href="/">home page</a></p>
     </div>
@@ -59,7 +57,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'EditEntity',
-  props: ['entity', 'alerts'],
+  props: ['alerts', 'entity'],
   data () {
     return {
       show: true,
