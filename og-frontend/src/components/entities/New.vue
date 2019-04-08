@@ -1,61 +1,55 @@
 <template>
-  <b-container fluid class="content-pane">
-    <b-row>
-      <b-col md="12">
-        <div class="record-pane" v-if="currentUser">
-          <b-alert dismissible show variant="danger" v-if="alerts.error">{{ alerts.error }}</b-alert>
-          <b-alert dismissible show variant="success" v-if="alerts.success">{{ alerts.success }}</b-alert>
-          <b-form class="entity-record-form" @submit.prevent="post" v-if="show">
-            <h2>New Entity</h2>
-            <section id="entity_basic_information">
-              <h3>Basic Information</h3>
-              <b-form-group id="entity_type" label-cols-sm="3" label="Entity Type" label-for="entity_type">
-                <b-form-select v-model="form.entity.entity_type" :options="entityTypeOptions"/>
-              </b-form-group>
-              <b-form-group id="bioghist" label-cols-sm="3" label="Biographical/Historical Note" label-for="bioghist">
-                <b-form-textarea v-model="form.entity.bioghist"/>
-              </b-form-group>
-            </section>
+  <div class="record-pane">
+    <div v-if="currentUser">
+      <b-form class="entity-record-form" @submit.prevent="post" v-if="show">
+        <h2>New Entity</h2>
+        <section id="entity_basic_information">
+          <h3>Basic Information</h3>
+          <b-form-group id="entity_type" label-cols-sm="3" label="Entity Type" label-for="entity_type">
+            <b-form-select v-model="form.entity.entity_type" :options="entityTypeOptions"/>
+          </b-form-group>
+          <b-form-group id="bioghist" label-cols-sm="3" label="Biographical/Historical Note" label-for="bioghist">
+            <b-form-textarea v-model="form.entity.bioghist"/>
+          </b-form-group>
+        </section>
 
-            <section id="entity_names">
-              <h3 class="subrecord-form-heading">
-                Names
-                <b-button size="sm" variant="light" class="subrecord-add btn-pull-right" @click="addNewName">Add Name</b-button>
-              </h3>
+        <section id="entity_names">
+          <h3 class="subrecord-form-heading">
+            Names
+            <b-button size="sm" variant="light" class="subrecord-add btn-pull-right" @click="addNewName">Add Name</b-button>
+          </h3>
 
-              <div class="subrecord-form-container">
-                <ul class="subrecord-form-list">
-                  <name-entry v-for="(name, index) in form.entity.names_attributes" :key="name.id" :name="name" :index="index" v-show="!name._destroy"/>
-                </ul>
-              </div>
-            </section>
+          <div class="subrecord-form-container">
+            <ul class="subrecord-form-list">
+              <name-entry v-for="(name, index) in form.entity.names_attributes" :key="name.id" :name="name" :index="index" v-show="!name._destroy"/>
+            </ul>
+          </div>
+        </section>
 
-            <section id="entity_admin_details">
-              <h3>Administrative Details</h3>
-              <b-form-group id="legal_status" label-cols-sm="3" label="Legal Status" label-for="legal_status">
-                <b-form-input v-model="form.entity.legal_status"/>
-              </b-form-group>
-              <b-form-group id="cataloging_level" label-cols-sm="3" label="Cataloging Level" label-for="cataloging_level">
-                <b-form-select v-model="form.entity.cataloging_level" :options="catalogingLevelOptions"/>
-              </b-form-group>
-              <b-form-group id="record_status" label-cols-sm="3" label="Record Status" label-for="record_status">
-                <b-form-select v-model="form.entity.record_status" :options="recordStatusOptions"/>
-              </b-form-group>
-            </section>
+        <section id="entity_admin_details">
+          <h3>Administrative Details</h3>
+          <b-form-group id="legal_status" label-cols-sm="3" label="Legal Status" label-for="legal_status">
+            <b-form-input v-model="form.entity.legal_status"/>
+          </b-form-group>
+          <b-form-group id="cataloging_level" label-cols-sm="3" label="Cataloging Level" label-for="cataloging_level">
+            <b-form-select v-model="form.entity.cataloging_level" :options="catalogingLevelOptions"/>
+          </b-form-group>
+          <b-form-group id="record_status" label-cols-sm="3" label="Record Status" label-for="record_status">
+            <b-form-select v-model="form.entity.record_status" :options="recordStatusOptions"/>
+          </b-form-group>
+        </section>
 
-            <div class="form-actions">
-              <b-button type="submit" size="sm" variant="primary">Save</b-button>
-              <b-button href="/" size="sm" variant="outline-secondary">Cancel</b-button>
-            </div>
-          </b-form>
+        <div class="form-actions">
+          <b-button type="submit" size="sm" variant="primary">Save</b-button>
+          <b-button href="/" size="sm" variant="outline-secondary">Cancel</b-button>
         </div>
-        <div v-else>
-          <b-alert show variant="danger"><strong>Error:</strong> You are not authorized to edit this resource.</b-alert>
-          <p>Return to the <a href="/">home page</a></p>
-        </div>
-      </b-col>
-    </b-row>
-  </b-container>
+      </b-form>
+    </div>
+    <div v-else>
+      <b-alert show variant="danger"><strong>Error:</strong> You are not authorized to edit this resource.</b-alert>
+      <p>Return to the <a href="/">home page</a></p>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -118,7 +112,10 @@ export default {
           this.alerts.success = 'Created: ' + this.uri
           this.$router.push(this.uri)
         })
-        .catch(e => { this.alerts.error = e.response.status + ' ' + e.response.data.message })
+        .catch(e => {
+          this.alerts.error = e.response.status + ' ' + e.response.data.message
+          window.scrollTo(0, 0)
+        })
     }
   }
 }

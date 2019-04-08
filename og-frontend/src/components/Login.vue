@@ -1,22 +1,20 @@
 <template>
-  <b-container fluid class="content-pane">
-    <b-row>
-      <b-col md="12">
-        <div class="record-pane">
-          <b-alert dismissible variant="danger" v-if="error" show>{{ error }}</b-alert>
-          <b-form @submit.prevent="login" v-if="show">
-            <b-form-group id="email" label="E-mail address:" label-for="email">
-              <b-form-input id="email" type="text" v-model="form.email"/>
-            </b-form-group>
-            <b-form-group id="password" label="Password:" label-for="password">
-              <b-form-input id="password" type="password" v-model="form.password"/>
-            </b-form-group>
-            <b-button type="submit" variant="primary">Log in</b-button>
-          </b-form>
-        </div>
-      </b-col>
-    </b-row>
-  </b-container>
+  <b-row>
+    <b-col md="12">
+      <div class="record-pane">
+        <b-alert dismissible variant="danger" v-if="error" show>{{ error }}</b-alert>
+        <b-form @submit.prevent="login" v-if="show">
+          <b-form-group id="email" label="E-mail address:" label-for="email">
+            <b-form-input id="email" type="text" v-model="form.email"/>
+          </b-form-group>
+          <b-form-group id="password" label="Password:" label-for="password">
+            <b-form-input id="password" type="password" v-model="form.password"/>
+          </b-form-group>
+          <b-button type="submit" variant="primary">Log in</b-button>
+        </b-form>
+      </div>
+    </b-col>
+  </b-row>
 </template>
 
 <script>

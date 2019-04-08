@@ -1,12 +1,16 @@
 <template>
   <div id="app">
     <Navbar/>
-    <router-view :alerts="alerts"/>
+    <b-container fluid class="content-pane">
+      <Alerts :alerts="alerts"/>
+      <router-view :alerts="alerts"></router-view>
+    </b-container>
   </div>
 </template>
 
 <script>
 import Navbar from '@/components/Navbar'
+import Alerts from '@/components/Alerts'
 
 export default {
   name: 'App',
@@ -18,7 +22,7 @@ export default {
       }
     }
   },
-  components: { Navbar }
+  components: { Navbar, Alerts }
 }
 </script>
 

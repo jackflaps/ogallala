@@ -7,7 +7,7 @@
     <b-collapse is-nav id="nav_collapse">
       <b-navbar-nav class="ml-auto">
         <b-nav-item v-if="currentUser">Hello, <strong>{{ currentUser.name }}</strong></b-nav-item>
-        <b-nav-item href="/entity/new">New Entity</b-nav-item>
+        <b-nav-item href="/entities/new">New Entity</b-nav-item>
         <b-nav-item href="/entities">View Entities</b-nav-item>
         <b-nav-item href="https://github.com/jackflaps/ogallala">GitHub</b-nav-item>
         <template v-if="currentUser">
