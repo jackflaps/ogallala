@@ -26,3 +26,11 @@ services:
     ports:
       - "3000:3000"
     user: frontend
+  elk:
+    image: sebp/elk
+    ports:
+      - "5601:5601"
+      - "9200:9200"
+      - "5044:5044"
+    environment:
+      - ES_CONNECT_RETRY=60
