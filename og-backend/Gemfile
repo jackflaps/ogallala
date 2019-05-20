@@ -21,8 +21,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 
 # Use elasticsearch
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
+#gem 'elasticsearch-model'
+#gem 'elasticsearch-rails'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -37,6 +37,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'active_model_serializers', '~> 0.10.0'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+gem 'rack-linkeddata'
+gem 'linkeddata'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

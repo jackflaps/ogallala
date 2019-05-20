@@ -17,7 +17,11 @@ class EntitiesController < ApplicationController
 
   # GET /entities/:id
   def show
-    json_response(@entity)
+    respond_to do |format|
+      format.html { json_response(@entity) }
+      format.json { json_response(@entity) }
+      format.rdf { rdf_response(@entity) }
+    end
   end
 
   # POST /entities/:id
